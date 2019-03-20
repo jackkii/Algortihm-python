@@ -38,8 +38,8 @@ class myStack:                #myStack类
             print(int(self.getTop()),end='')
             self.pop()
 
-number=input()                #输入一个十进制整数
-num=int(number)               #input转换成int
+              
+num=eval(input())             #input字符串转换成数字
 mmystack=myStack()            #创建堆栈
 while num/2 != 0:             #当商不为0时   
     mmystack.push(num%2)      #将每次除2的余数推进栈

@@ -37,7 +37,7 @@ def MSort(left, right, A_num):
 K=eval(input())                     #K为待排序数组个数
 for x in range(K):                  #执行K次排序
     num = list(input().split())  #得到list数组（中间元素为string类）
-    num = [int(x) for x in l]    #将元素转换为int型                     
+    num = [int(x) for x in num]    #将元素转换为int型                     
     MSort(0,len(num)-1,num)           #归并排序
     print(num)                        #打印排好序的数组
 

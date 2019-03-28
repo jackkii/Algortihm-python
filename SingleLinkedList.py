@@ -39,7 +39,7 @@ class SingleLinkedList:
             self._head = node
         else:
             temp = self._head               #临时指针用于寻找尾部结点
-            while temp.getNext() != None:
+            while temp.getNext() is not None:
                 temp = temp.getNext()       #遍历链表
             temp.next = node                  #指向尾部结点
         self._size += 1
@@ -48,7 +48,7 @@ class SingleLinkedList:
     def search(self,val):
         temp = self._head
         iffound = False
-        while temp != None and not iffound:
+        while temp is not None and not iffound:
             if temp.getValue() == val:
                 iffound = True
             else:
@@ -60,7 +60,7 @@ class SingleLinkedList:
         temp = self._head
         count = 0
         isfound = False
-        while temp != None and not isfound:
+        while temp is not None and not isfound:
             count += 1
             if temp.getValue() == val:
                 isfound = True
@@ -75,7 +75,7 @@ class SingleLinkedList:
     def remove(self,val):
         temp = self._head
         pre = None
-        while temp != None:
+        while temp is not None:
             if temp.getValue() == val:
                 if not pre:
                     self._head = temp.getNext()
@@ -109,7 +109,7 @@ class SingleLinkedList:
     #打印链表元素
     def printlist(self):
         temp = self._head
-        while temp != None:
+        while temp is not None:
             print(temp.getValue(), end=' ')
             temp = temp.getNext()
 

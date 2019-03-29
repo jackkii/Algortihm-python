@@ -54,6 +54,6 @@
 ### FullArrange_deep.py
 2019/03/29
 ##### 全排列（深度搜索）
-        https://github.com/jackkii/python_try/raw/master/深度搜索.PNG
+![](https://github.com/jackkii/python_try/blob/master/深度搜索.PNG)
       
 ##

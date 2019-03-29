@@ -13,7 +13,6 @@ class ListNode(object):
         self.next = next
         
     def getNext(self):
-
         return self.next
 
     def getValue(self):
@@ -27,7 +26,6 @@ class SingleLinkedList:
 
     # 返回头指针
     def get_head(self):
-
         return self._head
 
     # 是否为空
@@ -95,6 +93,8 @@ class SingleLinkedList:
                 pre = temp
                 temp =temp.getNext()
         self._size -= 1
+        
+        # ??待解决问题，若删除失败如何
 
     # 链表中间插入元素
     def insert(self, pos, val):
@@ -116,12 +116,11 @@ class SingleLinkedList:
             self._size += 1
 
     # 得到尾指针
-    def get_tail(self):
-        temp = self._head
-        while temp is not None:
-            pre = temp
+    def get_tail(self):             
+        temp = self._head           
+        while temp.getNext() is not None:  
             temp = temp.getNext()
-        return pre
+        return temp
 
     # 打印链表元素
     def printlist(self):
@@ -131,22 +130,23 @@ class SingleLinkedList:
             temp = temp.getNext()
 
 
+# 链表转置递归函数
 def list_reverse(pointer):
-    if pointer is None or pointer.getNext() is None:
+    if pointer is None or pointer.getNext() is None:        # 如果链表为空，或者只有一个元素，则返回当前指针
         return pointer
     else:
-        temp = list_reverse(pointer.getNext())
-        temp.next = pointer
-        pointer.next = None
-        return pointer
+        temp = list_reverse(pointer.getNext())              # 取得下一结点指针
+        temp.next = pointer                                 # 令下一结点指向当前结点
+        pointer.next = None                                 # 当前结点指向None
+        return pointer                                      # 返回当前结点
 
 
-n = eval(input())
-S = list(input().split(' '))
-myylist = SingleLinkedList()
-for _ in range(n):
+n = eval(input())                   # 输入接下来输入数据的个数
+S = list(input().split(' '))        # 将一串数据分开存入一个列表中
+myylist = SingleLinkedList()        # 创建一个链表
+for _ in range(n):                  # 将列表中的数据存入链表中
     myylist.append(S[_])
-new_head = myylist.get_tail()
-list_reverse(myylist.get_head())
-myylist._head = new_head
-myylist.printlist()
+new_head = myylist.get_tail()       # 由于要转置链表，故遍历得到当前指向尾部结点的指针，存为新头指针
+list_reverse(myylist.get_head())    # 转置链表
+myylist._head = new_head            # 更改新头指针
+myylist.printlist()                 # 打印

@@ -43,7 +43,7 @@
 2019/03/28
 ##### 最大公约数（辗转相除法）
 ##
-### list_reverse.py
+### SingleLinklist_reverse.py
 2019/03/29
 ##### 使用递归完成链表转置
 ##

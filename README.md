@@ -54,5 +54,6 @@
 ### FullArrange_deep.py
 2019/03/29
 ##### 全排列（深度搜索）
+        python_try/深度搜索.PNG
+      
 ##
-

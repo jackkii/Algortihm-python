@@ -5,37 +5,41 @@
 # Jackkii    2019/03/24
 #
 
-# 定义链表结点
+
 class ListNode(object):
-    def __init__(self, value, next = None):
-        self.val = value
-        self.next = next
-    def getNext(self):
+    # 定义链表结点
+    def __init__(self, val=None):
+        self.val = val
+        self.next = None
+
+    def get_next(self):
         return self.next
-    def getValue(self):
+
+    def get_value(self):
         return self.val
 
-# 定义链表操作
+
 class SingleLinkedList:
+    # 定义链表操作
     def __init__(self):
         self._head = None
         self._size = 0
 
-    # 是否为空
-    def isempty(self):
-        return self._head == None
+    def is_empty(self):
+        # 是否为空
+        return self._head is None
 
-    # 当前结点插入操作
     def add(self, val):
+        # 当前结点插入操作
         node = ListNode(val)
         node.next = self._head
         self._head = node
         self._size += 1
 
-    # 表尾插入操作
-    def append(self,val):
+    def append(self, val):
+        # 表尾插入操作
         node = ListNode(val)
-        if self.isempty():                  # 若空链表，则在头部创建结点
+        if self.is_empty():                  # 若空链表，则在头部创建结点
             self._head = node
         else:
             temp = self._head               # 临时指针用于寻找尾部结点
@@ -44,35 +48,35 @@ class SingleLinkedList:
             temp.next = node                  # 指向尾部结点
         self._size += 1
 
-    # 检索元素是否在链表中
-    def search(self,val):
+    def search(self, val):
+        # 检索元素是否在链表中
         temp = self._head
-        iffound = False
-        while temp is not None and not iffound:
+        if_found = False
+        while temp is not None and not if_found:
             if temp.getValue() == val:
-                iffound = True
+                if_found = True
             else:
                 temp = temp.getNext()
-        return iffound
+        return if_found
 
-    # 寻找元素对应下标index
-    def index(self,val):
+    def index(self, val):
+        # 寻找元素对应下标index
         temp = self._head
         count = 0
-        isfound = False
-        while temp is not None and not isfound:
+        is_found = False
+        while temp is not None and not is_found:
             count += 1
             if temp.getValue() == val:
-                isfound = True
+                is_found = True
             else:
                 temp = temp.getNext()
-        if isfound:
+        if is_found:
             return count
         else:
-            raise Exception('%s is not in linkedlist'%val)
+            raise Exception('%s is not in linkedlist' % val)
 
-    # 删除链表中某项元素
-    def remove(self,val):
+    def remove(self, val):
+        # 删除链表中某项元素
         temp = self._head
         pre = None
         while temp is not None:
@@ -84,11 +88,11 @@ class SingleLinkedList:
                 break
             else:
                 pre = temp
-                temp =temp.getNext()
+                temp = temp.getNext()
         self._size -= 1
 
-    # 链表中间插入元素
-    def insert(self,pos,val):
+    def insert(self, pos, val):
+        # 链表中间插入元素
         if pos <= 1:
             self.add(val)
         elif pos > self._size:
@@ -106,13 +110,12 @@ class SingleLinkedList:
             newnode.next = temp
             self._size += 1
 
-    # 打印链表元素
     def printlist(self):
+        # 打印链表元素
         temp = self._head
         while temp is not None:
             print(temp.getValue(), end=' ')
             temp = temp.getNext()
-
 
 
 # try
@@ -120,5 +123,3 @@ mylist = SingleLinkedList()
 mylist.insert(1, 3)
 mylist.printlist()
 mylist.append(101)
-
-

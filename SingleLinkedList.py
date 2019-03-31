@@ -29,6 +29,12 @@ class SingleLinkedList:
         # 是否为空
         return self._head is None
 
+    def addbegin(self, val):
+        # 表头插入操作
+        newnode = ListNode(val)
+        newnode.next = self._head
+        self._head = newnode
+
     def add(self, val):
         # 当前结点插入操作
         node = ListNode(val)

@@ -56,6 +56,6 @@
 ##### 全排列（深度搜索）
 ![](https://github.com/jackkii/python_try/blob/master/深度搜索.PNG)
       
-## BSearch
+### BSearch.py
 2019/04/11
 ##### 二分查找非递归解法，输入几组递增正整数数组及待查找的几个数(分别)

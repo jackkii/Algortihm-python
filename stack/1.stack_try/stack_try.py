@@ -45,3 +45,13 @@ if __name__ == '__main__':
         mmystack.push(num%2)      #将每次除2的余数推进栈
         num =(num-num%2)/2        
     mmystack.printt()
+    
+   
+'''
+思路：
+建栈：使用列表实现
+      1.__init__中 创建栈长，列表
+      2.push,pop,isempty函数
+      3.gettop, stacklen, print函数（方便输出)
+十进制转二进制：
+       原理：模二余数入栈，num=num减余数再除2（num整除//2/也可),循环到商不为0后倒序输出

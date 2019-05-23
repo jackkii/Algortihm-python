@@ -1,9 +1,10 @@
-#stack_try.py
-#-----------------------
-#stack_try
-#尝试将整数转换为二进制(使用堆栈结构）
-#-----------------------
-#Jackkii    2019/03/18
+# stack_try.py
+# -----------------------
+# stack_try
+# 尝试将整数转换为二进制(使用堆栈结构）
+# -----------------------
+# Jackkii    2019/03/18
+# Jackkii    2019/05/23    修改一些细节
 
 class myStack:                #myStack类
     def __init__(self):       
@@ -23,9 +24,8 @@ class myStack:                #myStack类
 
     def isEmpty(self):        #判断栈是否为空
         if self.Len == 0:
-            return 1
-        else:
-            return 0
+            return True
+        return False
 
     def getTop(self):         #取得栈顶元素
         return self.stack[-1]
@@ -38,10 +38,10 @@ class myStack:                #myStack类
             print(int(self.getTop()),end='')
             self.pop()
 
-              
-num=eval(input())             #input字符串转换成数字
-mmystack=myStack()            #创建堆栈
-while num/2 != 0:             #当商不为0时   
-    mmystack.push(num%2)      #将每次除2的余数推进栈
-    num =(num-num%2)/2        
-mmystack.printt()
+if __name__ == '__main__':              
+    num=eval(input())             #input字符串转换成数字
+    mmystack=myStack()            #创建堆栈
+    while num/2 != 0:             #当商不为0时   
+        mmystack.push(num%2)      #将每次除2的余数推进栈
+        num =(num-num%2)/2        
+    mmystack.printt()

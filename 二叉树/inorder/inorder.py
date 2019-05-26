@@ -24,15 +24,15 @@ class bTree:
     def create_tree(self, node, i=0):
         if i >= len(self.data):           # 若指针指到最后一个元素
             return
-        elif data[0] == '':              # 空树
+        elif self.data[0] == '':              # 空树
             self.root = None
         else:                             # 若还有元素需要加入树中
             if self.data[i] != '#':
                 node.elem = self.data[i]
-                if 2*i+1 < len(data):      # 判断该节点是否有左孩子
+                if 2*i+1 < len(self.data):      # 判断该节点是否有左孩子
                     node.lchild = bTreeNode()
                     self.create_tree(node.lchild, 2*i+1)    # 有则创建并赋值
-                if 2*i+2 < len(data):      # 判断该节点是否有右孩子
+                if 2*i+2 < len(self.data):      # 判断该节点是否有右孩子
                     node.rchild = bTreeNode()
                     self.create_tree(node.rchild, 2*i+2)
 

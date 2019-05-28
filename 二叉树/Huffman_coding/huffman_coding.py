@@ -1,6 +1,6 @@
 # huffman_coding.py
 # ------------------------
-# 哈夫曼编码(使用字典)
+# 哈夫曼编码
 # ------------------------
 # Jackkii   2019/05/28
 #
@@ -31,7 +31,7 @@ class HuffmanTree:
             nodelist.pop(node1_index)
             node2_index, node2 = self.findmin(nodelist)
             nodelist.pop(node2_index)
-                                                            # 创建新结点，权值为左右节点之和，左孩子为权值较小的
+            # 创建新结点，权值为左右节点之和，左孩子为权值较小的
             newnode = HuffmanTreeNode(node1.key + node2.key, lchild=node1, rchild=node2)
             node1.parent = newnode
             node2.parent = newnode
@@ -54,7 +54,7 @@ class HuffmanTree:
 def valconvertcode(hTreenode, x, mycodedict):               # 哈夫曼编码，结点若有左孩子，结点到左孩子的路径标0，若有右孩子，
     if hTreenode:                                           # 结点到右孩子的路径标1，每个叶子结点内权值对应字母的编码即为
         if hTreenode.isleaf():                              # 根节点到该叶子结点路径上0或1的累积，并存进表中
-            mydict[hTreenode.val] = x
+            mycodedict[hTreenode.val] = x
         else:
             valconvertcode(hTreenode.leftchild, x + '0', mycodedict)
             valconvertcode(hTreenode.rightchild, x + '1', mycodedict)
@@ -75,7 +75,7 @@ if __name__ == '__main__':
         except KeyError:
             mydict[str[x]] = 1
     listmydict = list(mydict)                                   # 取得字典的key值，并转为列表
-                                                                # 创建node(key, val)并加入结点表表中，key为权值，val为字符
+    # 创建node(key, val)并加入结点表表中，key为权值，val为字符
     nodelist = [HuffmanTreeNode(mydict[listmydict[x]], listmydict[x]) for x in range(len(listmydict))]
 
     myhuffman = HuffmanTree()

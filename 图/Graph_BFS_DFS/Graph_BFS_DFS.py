@@ -109,6 +109,15 @@ class DFSGraph(Graph):                      # 深度搜索图，继承图（使�
         for aVertex in self:                # 进行访问
             if aVertex == 'while':
                 self.dfsvisit(aVertex)
+                
+ '''若不使用魔法方法
+    def dfs(self):
+        for aVertex in self.vertList.keys():
+            self.vertList[aVertex].color = 'white'
+        for aVertex in self.vertList.keys():
+            if self.vertList[aVertex].color == 'while':
+                self.dfsvisit(aVertex)
+'''
 
     def dfsvisit(self, startVertex):
         print(startVertex.id, end=' ')      # 访问该结点

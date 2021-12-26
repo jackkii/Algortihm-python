@@ -1,5 +1,5 @@
-# python_try
-### 记录初学python之旅
+# Algorithm-python
+### 数据结构课程python代码
 2019/03/18    Jackkii
 
 ##
